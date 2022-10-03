@@ -1,4 +1,5 @@
 import argparse, os, sys, datetime, glob, importlib
+sys.path.insert(1, os.getcwd())
 from omegaconf import OmegaConf
 import numpy as np
 from PIL import Image
@@ -12,7 +13,6 @@ from pytorch_lightning.callbacks import ModelCheckpoint, Callback, LearningRateM
 from pytorch_lightning.utilities.distributed import rank_zero_only
 
 from taming.data.utils import custom_collate
-
 
 def get_obj_from_str(string, reload=False):
     module, cls = string.rsplit(".", 1)
